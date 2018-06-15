@@ -6,7 +6,7 @@
 #
 Name     : bmap-tools
 Version  : 3.4
-Release  : 5
+Release  : 6
 URL      : https://github.com/intel/bmap-tools/releases/download/v3.4/bmap-tools-3.4.tgz
 Source0  : https://github.com/intel/bmap-tools/releases/download/v3.4/bmap-tools-3.4.tgz
 Source99 : https://github.com/intel/bmap-tools/releases/download/v3.4/bmap-tools-3.4.tgz.asc
@@ -15,10 +15,10 @@ Group    : Development/Tools
 License  : GPL-2.0
 Requires: bmap-tools-bin
 Requires: bmap-tools-python3
+Requires: bmap-tools-license
 Requires: bmap-tools-python
 BuildRequires : pbr
 BuildRequires : pip
-
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
@@ -33,9 +33,26 @@ source.tizen.org/documentation/reference/bmaptool for more information.
 %package bin
 Summary: bin components for the bmap-tools package.
 Group: Binaries
+Requires: bmap-tools-license
 
 %description bin
 bin components for the bmap-tools package.
+
+
+%package doc
+Summary: doc components for the bmap-tools package.
+Group: Documentation
+
+%description doc
+doc components for the bmap-tools package.
+
+
+%package license
+Summary: license components for the bmap-tools package.
+Group: Default
+
+%description license
+license components for the bmap-tools package.
 
 
 %package python
@@ -64,11 +81,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1524241285
+export SOURCE_DATE_EPOCH=1529093355
 python3 setup.py build -b py3
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/bmap-tools
+cp COPYING %{buildroot}/usr/share/doc/bmap-tools/COPYING
+cp debian/copyright %{buildroot}/usr/share/doc/bmap-tools/debian_copyright
 python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -80,6 +100,14 @@ echo ----[ mark ]----
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/bmaptool
+
+%files doc
+%defattr(0644,root,root,0755)
+%doc /usr/share/doc/bmap\-tools/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/bmap-tools/COPYING
 
 %files python
 %defattr(-,root,root,-)
