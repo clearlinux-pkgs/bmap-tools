@@ -18,7 +18,7 @@ Requires: bmap-tools-python3
 Requires: bmap-tools-python
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
