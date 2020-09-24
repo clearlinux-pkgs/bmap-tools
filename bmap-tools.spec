@@ -6,7 +6,7 @@
 #
 Name     : bmap-tools
 Version  : 3.4
-Release  : 17
+Release  : 18
 URL      : https://github.com/intel/bmap-tools/releases/download/v3.4/bmap-tools-3.4.tgz
 Source0  : https://github.com/intel/bmap-tools/releases/download/v3.4/bmap-tools-3.4.tgz
 Source1  : https://github.com/intel/bmap-tools/releases/download/v3.4/bmap-tools-3.4.tgz.asc
