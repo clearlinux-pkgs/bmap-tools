@@ -4,7 +4,7 @@
 #
 Name     : bmap-tools
 Version  : 3.6
-Release  : 33
+Release  : 34
 URL      : https://github.com/intel/bmap-tools/archive/v3.6/bmap-tools-3.6.tar.gz
 Source0  : https://github.com/intel/bmap-tools/archive/v3.6/bmap-tools-3.6.tar.gz
 Summary  : Tools to generate block map (AKA bmap) and flash images using bmap
