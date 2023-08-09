@@ -5,7 +5,7 @@
 #
 Name     : bmap-tools
 Version  : 3.7
-Release  : 36
+Release  : 37
 URL      : https://github.com/intel/bmap-tools/archive/v3.7/bmap-tools-3.7.tar.gz
 Source0  : https://github.com/intel/bmap-tools/archive/v3.7/bmap-tools-3.7.tar.gz
 Summary  : Tools to generate block map (AKA bmap) and flash images using bmap
@@ -15,6 +15,9 @@ Requires: bmap-tools-bin = %{version}-%{release}
 Requires: bmap-tools-license = %{version}-%{release}
 Requires: bmap-tools-python = %{version}-%{release}
 Requires: bmap-tools-python3 = %{version}-%{release}
+Requires: gpgme-python3
+Requires: pypi-nose-python3
+Requires: pypi-six-python3
 BuildRequires : buildreq-distutils3
 BuildRequires : pypi(poetry_core)
 # Suppress stripping binaries
@@ -76,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1691096928
+export SOURCE_DATE_EPOCH=1691593959
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
